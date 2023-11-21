@@ -41,8 +41,27 @@
             <input type="text" class="form-control" id="input-2" name="nm_paket" value="{{ $paket->nm_paket }}">
            </div>
            <div class="form-group">
-            <label for="input-3">Jenis Paket</label>
-            <input type="text" class="form-control" id="input-3" name="jenis_paket" value="{{ $paket->jenis_paket}}">
+            <label for="input-3">Jenis Paket</label><br>
+
+@if($paket->jenis_paket == "Express")
+
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express" checked="checked"> Express 
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler"> Reguler
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis
+
+@elseif($paket->jenis_paket == "Reguler")
+
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express"> Express 
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler" checked="checked"> Reguler
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis
+
+@elseif($paket->jenis_paket == "Ekonomis")
+
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express"> Express 
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler"> Reguler
+            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis" checked="checked"> Ekonomis
+@endif
+
            </div>
            <div class="form-group">
             <label for="input-3">Nama Pengirim</label>

@@ -26,12 +26,12 @@
            <div class="card-title">Data Konsumen</div>
            <hr>
 
-            <form method="POST" action="{{ route('konsumen.store') }}" enctype="multipart/form-data">
+            <form class="user" method="POST" action="{{ route('konsumen.store') }}" enctype="multipart/form-data">
 
             	{{ csrf_field() }}
            <div class="form-group">
             <label for="input-1">Nama Konsumen</label>
-            <input type="text" class="form-control" id="input-1" name="nm_konsumen">
+            <input type="text" class="form-control" id="input-1" name="nama">
            </div>
            <div class="form-group">
             <label for="input-2">Alamat</label>

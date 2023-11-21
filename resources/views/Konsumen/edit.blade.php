@@ -34,7 +34,7 @@
 
            <div class="form-group">
             <label for="input-1">Nama Konsumen</label>
-            <input type="text" class="form-control" id="input-1" name="nm_konsumen" value="{{ $konsumen->nm_konsumen}}">
+            <input type="text" class="form-control" id="input-1" name="nama" value="{{ $konsumen->nama}}">
            </div>
            <div class="form-group">
             <label for="input-2">Alamat</label>
