@@ -18,10 +18,13 @@
 
 
 
-<form class="user" method="POST" action="{{ route('konsumen.update', $konsumen->id_konsumen) }}" enctype="multipart/form-data">
+<form class="user" method="POST" action="{{ '/konsumen/'. ($konsumen->id_konsumen) }}" enctype="multipart/form-data">
+<input type="hidden" name="_method" value="PUT">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 @csrf
 @method('PUT')
+
 
 <div class="container-fluid">
 
@@ -58,7 +61,7 @@
            <div class="card-body">
            <div class="card-title">Profil Konsumen</div>
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{ url('Profile/'.$konsumen->foto) }}" alt="">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 35rem;" src="{{ url('Profile/'.$konsumen->foto) }}" alt="">
                   </div>
 
                   <div class="form-group">

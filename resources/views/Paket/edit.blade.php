@@ -45,21 +45,21 @@
 
 @if($paket->jenis_paket == "Express")
 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express" checked="checked"> Express 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler"> Reguler
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis
+            <input type="radio" id="input-3" name="jenis_paket" value="Express" checked="checked"> Express <br> 
+            <input type="radio" id="input-3" name="jenis_paket" value="Reguler"> Reguler <br>
+            <input type="radio" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis <br>
 
 @elseif($paket->jenis_paket == "Reguler")
 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express"> Express 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler" checked="checked"> Reguler
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis
+            <input type="radio" id="input-3" name="jenis_paket" value="Express"> Express <br>
+            <input type="radio" id="input-3" name="jenis_paket" value="Reguler" checked="checked"> Reguler <br>
+            <input type="radio" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis <br>
 
 @elseif($paket->jenis_paket == "Ekonomis")
 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Express"> Express 
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Reguler"> Reguler
-            <input type="radio" class="form-control" id="input-3" name="jenis_paket" value="Ekonomis" checked="checked"> Ekonomis
+            <input type="radio" id="input-3" name="jenis_paket" value="Express"> Express <br>
+            <input type="radio" id="input-3" name="jenis_paket" value="Reguler"> Reguler <br>
+            <input type="radio" id="input-3" name="jenis_paket" value="Ekonomis" checked="checked"> Ekonomis <br>
 @endif
 
            </div>
