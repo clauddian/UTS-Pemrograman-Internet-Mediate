@@ -47,7 +47,7 @@ class KonsumenController extends Controller
         $file = $request->file('foto');
         $nama_file = time()."_".$file->getClientOriginalName();
         // isi dengan nama folder tempat kemana file diupload
-        $tujuan_upload = 'Profil';
+        $tujuan_upload = 'Profile';
         $file->move($tujuan_upload,$nama_file);
 
         Konsumen::create([
@@ -101,13 +101,13 @@ class KonsumenController extends Controller
         ]);
 
         if($request->file('foto')){
-            unlink(public_path('Profil/'. $konsumen->foto));
+            unlink(public_path('Profile/'. $konsumen->foto));
         $file = $request->file('foto');
         $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = "Profil";
+        $tujuan_upload = "Profile";
         $file->move($tujuan_upload,$nama_file);
 
-        Storage::delete('public/Profil/'. $konsumen->foto);
+        Storage::delete('public/Profile/'. $konsumen->foto);
 
         // update post data image
         $konsumen->update([

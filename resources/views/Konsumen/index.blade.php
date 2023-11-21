@@ -32,7 +32,7 @@
                   	@foreach ($konsumens as $konsumen)
                     <tr>
                       <td>{{ ++$i }}</td>
-                      <td><img width="70px" src="{{ url('/Konsumen/'.$konsumen->foto) }}"></td>
+                      <td><img width="70px" src="{{ url('/Profile/'.$konsumen->foto) }}"></td>
                       <td>{{ $konsumen->nama }}</td>
                       <td>{{ $konsumen->alamat }}</td>
                       <td>{{ $konsumen->no_hp }}</td>

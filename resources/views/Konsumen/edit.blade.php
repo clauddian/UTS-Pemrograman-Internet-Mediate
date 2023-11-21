@@ -58,7 +58,7 @@
            <div class="card-body">
            <div class="card-title">Profil Konsumen</div>
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{ url('Konsumen/'.$konsumen->foto) }}" alt="">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{ url('Profile/'.$konsumen->foto) }}" alt="">
                   </div>
 
                   <div class="form-group">
