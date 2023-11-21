@@ -11,6 +11,8 @@ class Paket extends Model
 
     public $table = "tbl_paket";
 
+    protected $primaryKey = 'id_paket';
+
     protected $fillable = [
         'id_paket', 'kd_paket', 'nm_paket', 'jenis_paket', 'nm_konsumen', 'tujuan', 'nm_penerima', 'foto_resi'
     ];

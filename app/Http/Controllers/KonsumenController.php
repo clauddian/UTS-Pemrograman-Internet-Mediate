@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Konsumen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class KonsumenController extends Controller
 {
@@ -13,7 +15,8 @@ class KonsumenController extends Controller
      */
     public function index()
     {
-        return view('konsumen.index');
+        $konsumens = Konsumen::latest()->paginate(20);
+        return view('konsumen.index', compact('konsumens'))->with('i', (request()->input('page',1)-1)*20);
     }
 
     /**
@@ -34,16 +37,28 @@ class KonsumenController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nik_siswa' => 'required',
-            'nm_siswa' => 'required',
-            'gender' => 'required',
-            'tgl_lahir' => 'required',
+        $this->validate($request, [
+            'nama' => 'required',
             'alamat' => 'required',
-            'gambar' => 'required',
+            'no_hp' => 'required',
+            'foto' => 'required'
         ]);
 
-        Konsumen::create($request->all());
+        $file = $request->file('foto');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'Profil';
+        $file->move($tujuan_upload,$nama_file);
+
+        Konsumen::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'no_hp' => $request->no_hp,
+            'foto' => $nama_file
+
+        ]);
+
+
         return redirect()->route('konsumen.index')
         ->with('success','Konsumen Created Successfully.');
     }
@@ -65,9 +80,9 @@ class KonsumenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Konsumen $konsumen)
     {
-        //
+        return view('konsumen.edit',compact('konsumen'));
     }
 
     /**
@@ -77,9 +92,36 @@ class KonsumenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Konsumen $konsumen)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required',
+        ]);
+
+        if($request->file('foto')){
+            unlink(public_path('Profil/'. $konsumen->foto));
+        $file = $request->file('foto');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = "Profil";
+        $file->move($tujuan_upload,$nama_file);
+
+        Storage::delete('public/Profil/'. $konsumen->foto);
+
+        // update post data image
+        $konsumen->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'no_hp' => $request->no_hp,
+            'foto' => $nama_file,
+        ]);
+        }
+        else{
+            $konsumen->update($request->all());
+        }
+
+        return redirect()->route('konsumen.index')->with('success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -88,8 +130,9 @@ class KonsumenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Konsumen $konsumen)
     {
-        //
+        $konsumen->delete();
+        return redirect()->route('konsumen.index')->with('success','Data Berhasil Dihapus');
     }
 }

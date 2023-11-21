@@ -48,7 +48,7 @@
                       @csrf
                       @method('DELETE')
 
-                      <a class="btn btn-light px-5" href="{{route('paket.edit',$paket->id_paket)}}"> Ubah </a>
+                      <a class="btn btn-light px-5" href="{{ route('paket.edit',$paket->id_paket) }}"> Ubah </a>
 
                       <button type="submit" class="btn btn-light px-5" onclick="javascript: return confirm('Apakah Anda Ingin Menghapus Data Ini?')"> Hapus </button>
                       </form></td>

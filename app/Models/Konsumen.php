@@ -11,6 +11,8 @@ class Konsumen extends Model
 
     public $table = "tbl_konsumen";
 
+    protected $primaryKey = 'id_konsumen';
+
     protected $fillable = [
         'id_konsumen', 'nama', 'alamat', 'no_hp', 'foto'
     ];

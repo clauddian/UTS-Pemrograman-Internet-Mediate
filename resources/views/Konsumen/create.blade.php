@@ -23,41 +23,27 @@
       <div class="col-lg-6">
          <div class="card">
            <div class="card-body">
-           <div class="card-title">Data Paket</div>
+           <div class="card-title">Data Konsumen</div>
            <hr>
 
-            <form method="POST" action="{{ route('paket.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('konsumen.store') }}" enctype="multipart/form-data">
 
             	{{ csrf_field() }}
            <div class="form-group">
-            <label for="input-1">Kode</label>
-            <input type="text" class="form-control" id="input-1" name="kd_paket">
+            <label for="input-1">Nama Konsumen</label>
+            <input type="text" class="form-control" id="input-1" name="nm_konsumen">
            </div>
            <div class="form-group">
-            <label for="input-2">Nama Paket</label>
-            <input type="text" class="form-control" id="input-2" name="nm_paket">
+            <label for="input-2">Alamat</label>
+            <input type="text" class="form-control" id="input-2" name="alamat">
            </div>
            <div class="form-group">
-            <label for="input-3">Jenis Paket</label><br>
-            <input type="radio" id="input-3" name="jenis_paket" value="Express"> Express <br>
-            <input type="radio" id="input-3" name="jenis_paket" value="Reguler"> Reguler <br>
-            <input type="radio" id="input-3" name="jenis_paket" value="Ekonomis"> Ekonomis 
+            <label for="input-3">Nomor Handphone</label>
+            <input type="text" class="form-control" id="input-3" name="no_hp">
            </div>
            <div class="form-group">
-            <label for="input-3">Nama Pengirim</label>
-            <input type="text" class="form-control" id="input-3" name="nm_konsumen">
-           </div>
-           <div class="form-group">
-            <label for="input-3">Tujuan</label>
-            <textarea class="form-control" id="input-3" name="tujuan"></textarea>
-           </div>
-           <div class="form-group">
-            <label for="input-4">Nama Penerima</label>
-            <input type="text" class="form-control" id="input-4" name="nm_penerima">
-           </div>
-           <div class="form-group">
-            <label for="input-5">Nomor Resi</label>
-            <input type="file" class="form-control" id="input-5" name="foto_resi">
+            <label for="input-4">Foto</label>
+            <input type="file" class="form-control" id="input-4" name="foto">
            </div>
            <div class="form-group">
             <input type="submit" class="btn btn-light px-5" value="Simpan">
